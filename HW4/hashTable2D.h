@@ -13,6 +13,6 @@ public:
 private:
 	int rows = 100;
 	int cols = 5;
-	int** arr;
+	int*** arr;
 };
 
