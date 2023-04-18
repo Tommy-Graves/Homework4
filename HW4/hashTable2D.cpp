@@ -1,5 +1,6 @@
 #include "hashTable2D.h"
 hashTable2D::hashTable2D() {
+	items = 0;
 	arr = new int**[rows];
 	for (int i = 0; i < rows; i++) {
 		arr[i] = new int*[cols];
@@ -31,6 +32,7 @@ int hashTable2D::Insert(int* inVal) {
 	int address = hash(inVal);
 	if (arr[address][0] == nullptr) {
 		arr[address][0] == inVal;
+		items++;
 		return ret;
 	}
 	else {
@@ -44,6 +46,7 @@ int hashTable2D::Insert(int* inVal) {
 			}
 		}
 		arr[address][i] = inVal;
+		items++;
 		return ret;
 	}
 }
@@ -74,4 +77,51 @@ int hashTable2D::Find(int* inVal) {
 		return ret;
 	}
 
+}
+int hashTable2D::Remove(int* inVal) {
+	int ret = 1;
+	int address = hash(inVal);
+	int i = 0;
+	if (arr[address][i] != nullptr && *arr[address][i] == *inVal) {
+		delete arr[address][i];
+		arr[address][i] = nullptr;
+		return ret;
+	}
+	else {
+		if (arr[address][i] == nullptr) {
+			cout << "Item not in hash table" << endl;
+			return -1;
+		}
+		while (*arr[address][i] != *inVal) {
+			ret++;
+			i++;
+			if (i == 5) {
+				i = 0;
+				address++;
+			}
+			if (arr[address][i] == nullptr) {
+				cout << "Item not in hash table" << endl;
+				return -1;
+			}
+		}
+		delete arr[address][i];
+		arr[address][i] = nullptr;
+		return ret;
+	}
+
+}
+void hashTable2D::Print() {
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			if (arr[i][j] == nullptr) {
+				cout << "___ -> ";
+			}
+			else {
+				cout << *arr[i][j] << " -> ";
+			}
+			if (j == 4) {
+				cout << endl;
+			}
+		}
+	}
 }

@@ -7,8 +7,8 @@ public:
 	hashTable2D();
 	~hashTable2D();
 
-	void Insert(int*);
-	int* Find(int);
+	int Insert(int*);
+	int Find(int*);
 	int Remove(int*);
 
 
