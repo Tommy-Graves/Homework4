@@ -31,7 +31,7 @@ int hashTable2D::Insert(int* inVal) {
 	int ret = 1;
 	int address = hash(inVal);
 	if (arr[address][0] == nullptr) {
-		arr[address][0] == inVal;
+		arr[address][0] = inVal;
 		items++;
 		return ret;
 	}

@@ -1,7 +1,8 @@
 #include "hashTable1D.h"
+#include "hashTable2D.h"
 
 int main() {
-	hashTable1D myTable = hashTable1D();
+	hashTable2D myTable = hashTable2D();
 
 	int* ptr1 = new int(3);
 	int* ptr2 = new int(1);
