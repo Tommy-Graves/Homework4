@@ -128,9 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="hashTable1D.h" />
+    <ClInclude Include="hashTable2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hashTable1D.cpp" />
+    <ClCompile Include="hashTable2D.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

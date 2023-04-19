@@ -49,35 +49,17 @@ int hashTable1D::Find(int* inVal) {
 		}
 	}
 	else {
-		while (ret < size) {	// iterates until every spot is checked
-			if (arr[address] == nullptr) {
-				ret++;
-				if (address < size) {
-					address++;
-				}
-				else if (address == size) {
-					address = 0;
-				}
+		while (arr[address] != nullptr) {
+			if (*arr[address] == *inVal) {
+				return ret;
 			}
-			else {
-				if (*arr[address] == *inVal) {
-					ret++;
-					return ret;
-				}
-				ret++;
-				address++;
-			}
-		}
-		if (arr[address] == nullptr) {	// leaves while loop and last item is nullptr
-			return -1;
-		}
-		else if(*arr[address] == *inVal) {	// leaves while loop and last item equals inVal
 			ret++;
-			return ret;
+			address++;
+			if (address >= size) {
+				return -1;
+			}
 		}
-		else {	// leaves while loop and last item does not equal inVal
-			return -1;
-		}
+		return -1;
 	}
 }
 
@@ -93,25 +75,16 @@ int hashTable1D::Remove(int* inVal) {
 		}
 	}
 	else {
-		while (ret < size) {
-			while (arr[address] == nullptr) {	// iterates until it finds a spot that isnt null
-				ret++;
-				if (address < size) {
-					address++;
-				}
-				else if (address == size) {
-					address = 0;
-				}
-			}
+		while (arr[address] != nullptr) {
 			if (*arr[address] == *inVal) {
-				ret++;
 				delete arr[address];
 				arr[address] = nullptr;
 				return ret;
 			}
-			else if (*arr[address] != *inVal) {
-				ret++;
-				address++;
+			ret++;
+			address++;
+			if (address >= size) {
+				return -1;
 			}
 		}
 		return -1;

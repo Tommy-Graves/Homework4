@@ -18,12 +18,18 @@
     <ClInclude Include="hashTable1D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="hashTable2D.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="hashTable1D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="hashTable2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
